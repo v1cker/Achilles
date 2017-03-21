@@ -183,7 +183,7 @@ class AchillesServer(Thread):
 
     def put_result(self, cid, type, results):
         self.locks['put_result'].acquire()
-        if cid not in self.clients:
+        if cid not in self.clients and cid != 'PROXY':
             self.locks['put_result'].release()
             return
 

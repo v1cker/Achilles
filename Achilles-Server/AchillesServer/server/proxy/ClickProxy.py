@@ -40,6 +40,7 @@ class ClickProxy(Thread):
         thread.start()
         while self.tasks.get() != TASK_NO_MORE:
             continue
+        self.cproxy.shutdown()
         logger.debug('Exit')
 
     def upload(self):
